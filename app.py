@@ -27,7 +27,7 @@ def home():
         sitios = [] # Si falla, mandamos la lista vacía para que no se rompa la web
     
     # Pasamos la lista 'sitios' al HTML
-    return render_template('inicio.html', sitios=sitios)
+    return render_template('home.html', sitios=sitios)
 
 if __name__ == '__main__':
     # Agregamos el paréntesis que faltaba y activamos el modo debug
