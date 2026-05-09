@@ -1,12 +1,20 @@
 import urllib3
 import boto3
 from datetime import datetime
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, AWS_SESSION_TOKEN, DYNAMODB_TABLE
+
 
 def lambda_handler(event, context):
     http = urllib3.PoolManager()
-    dynamodb = boto3.resource('dynamodb')
+    dynamodb = boto3.resource(
+        'dynamodb',
+        region_name=AWS_REGION,
+        aws_access_key_id=AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+        aws_session_token=AWS_SESSION_TOKEN
+    )
     tabla = dynamodb.Table('MonitoreoSitios')
-    
+
     # Lista de sitios a monitorear (puedes traerlos de la tabla después)
     sitios = ["https://www.google.com", "https://github.com"]
     

@@ -1,11 +1,18 @@
 import boto3
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, AWS_SESSION_TOKEN, DYNAMODB_TABLE
 
 def crear_tabla():
-    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+    dynamodb = boto3.resource(
+        'dynamodb',
+        region_name=AWS_REGION,
+        aws_access_key_id=AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+        aws_session_token=AWS_SESSION_TOKEN
+    )
     
     try:
         tabla = dynamodb.create_table(
-            TableName='MonitoreoSitios',
+            TableName=DYNAMODB_TABLE,
             KeySchema=[{'AttributeName': 'url', 'KeyType': 'HASH'}],
             AttributeDefinitions=[{'AttributeName': 'url', 'AttributeType': 'S'}],
             ProvisionedThroughput={'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
