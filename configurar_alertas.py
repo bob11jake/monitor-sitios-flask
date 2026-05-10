@@ -12,7 +12,7 @@ def configurar_sns():
     sns.subscribe(
         TopicArn=topic_arn,
         Protocol='email',
-        Endpoint='francisco.duenas7744@alumnos.udg.mx' 
+        Endpoint='jose.anguiano7734@alumnos.udg.mx' 
     )
     
     print(f"Topic creado. ARN: {topic_arn}")

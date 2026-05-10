@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    padding: 30px 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background-color: #2563eb;
+}
+
+/* Main */
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+/* Card */
+
+.register-card {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Header */
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-header h1 {
+    color: #111827;
+    margin-bottom: 10px;
+    font-size: 34px;
+}
+
+.register-header p {
+    color: #6b7280;
+}
+
+/* Inputs */
+
+.custom-input {
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    padding-left: 15px;
+}
+
+.custom-input:focus {
+    border-color: #2563eb;
+    box-shadow: none;
+}
+
+/* Button */
+
+.register-btn {
+    background-color: #2563eb;
+    color: white;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Footer */
+
+.login-link {
+    margin-top: 25px;
+    text-align: center;
+    color: #6b7280;
+}
+
+.login-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
