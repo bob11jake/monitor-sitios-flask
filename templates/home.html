@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitor AWS</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
 
 <body>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <h2>AWS Monitor</h2>
-
-        <a href="#">🏠 Dashboard</a>
+        <a href="{{ url_for('home') }}">🏠 Dashboard</a>
         <a href="#">🔐 Iniciar sesión</a>
         <a href="#">🚪 Cerrar sesión</a>
     </div>
 
-    <!-- Main content -->
     <div class="main-content">
 
         <div class="dashboard-card">
@@ -33,6 +27,20 @@
             <div class="header">
                 <h1>Dashboard de Monitoreo</h1>
                 <p>Estado actual de los servicios monitoreados</p>
+            </div>
+
+            <div class="container-fluid mb-4">
+                <form action="/agregar" method="POST" class="row g-3 align-items-center">
+                    <div class="col-8 col-md-9">
+                        <input type="text" name="url_sitio" class="form-control"
+                            placeholder="Ingresa URL (ej: google.com)" required>
+                    </div>
+                    <div class="col-4 col-md-3">
+                        <button type="submit" class="btn btn-primary w-100">
+                            + Agregar Sitio
+                        </button>
+                    </div>
+                </form>
             </div>
 
             <table class="table custom-table">
@@ -51,7 +59,9 @@
 
                         <td>
                             <span class="badge 
-                            {{ 'bg-success' if sitio.estado == 'Online' else 'bg-danger' }}">
+                                {% if sitio.estado == 'Online' %} bg-success 
+                                {% elif sitio.estado == 'Offline' %} bg-danger 
+                                {% else %} bg-warning text-dark {% endif %}">
                                 {{ sitio.estado }}
                             </span>
                         </td>
@@ -64,4 +74,5 @@
         </div>
     </div>
 </body>
+
 </html>
