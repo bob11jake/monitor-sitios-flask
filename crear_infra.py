@@ -13,8 +13,8 @@ def crear_tabla():
     try:
         tabla = dynamodb.create_table(
             TableName=DYNAMODB_TABLE,
-            KeySchema=[{'AttributeName': 'url', 'KeyType': 'HASH'}],
-            AttributeDefinitions=[{'AttributeName': 'url', 'AttributeType': 'S'}],
+            KeySchema=[{'AttributeName': 'usuario', 'KeyType': 'HASH'}, {'AttributeName': 'url', 'KeyType': 'RANGE'}],
+            AttributeDefinitions=[{'AttributeName': 'usuario', 'AttributeType': 'S'}, {'AttributeName': 'url', 'AttributeType': 'S'}],
             ProvisionedThroughput={'ReadCapacityUnits': 5, 'WriteCapacityUnits': 5}
         )
         print("Creando tabla... espera un momento.")

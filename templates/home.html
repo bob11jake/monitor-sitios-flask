@@ -16,60 +16,13 @@
     <div class="sidebar">
         <h2>AWS Monitor</h2>
         <a href="{{ url_for('home') }}">🏠 Dashboard</a>
-        <a href="{{ url_for('login') }}">🔐 Iniciar sesión</a>
     </div>
 
     <div class="main-content">
-
-        <div class="dashboard-card">
-
-            <div class="header">
-                <h1>Dashboard de Monitoreo</h1>
-                <p>Estado actual de los servicios monitoreados</p>
-            </div>
-
-            <div class="container-fluid mb-4">
-                <form action="/agregar" method="POST" class="row g-3 align-items-center">
-                    <div class="col-8 col-md-9">
-                        <input type="text" name="url_sitio" class="form-control"
-                            placeholder="Ingresa URL (ej: google.com)" required>
-                    </div>
-                    <div class="col-4 col-md-3">
-                        <button type="submit" class="btn btn-primary w-100">
-                            + Agregar Sitio
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <table class="table custom-table">
-                <thead>
-                    <tr>
-                        <th>URL</th>
-                        <th>Estado</th>
-                        <th>Última Revisión</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for sitio in sitios %}
-                    <tr>
-                        <td>{{ sitio.url }}</td>
-
-                        <td>
-                            <span class="badge 
-                                {% if sitio.estado == 'Online' %} bg-success 
-                                {% elif sitio.estado == 'Offline' %} bg-danger 
-                                {% else %} bg-warning text-dark {% endif %}">
-                                {{ sitio.estado }}
-                            </span>
-                        </td>
-
-                        <td>{{ sitio.ultima_revision }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="header">
+            <h1>Dashboard de Monitoreo</h1>
+            <p>Bienvenido. Por favor, inicia sesión para gestionar tus sitios.</p>
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Empezar ahora</a>
         </div>
     </div>
 </body>
